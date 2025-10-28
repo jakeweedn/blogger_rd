@@ -10,6 +10,9 @@ export const AppState = reactive({
   account: null,
 
   /** @type {Blog[]} */
-  blogs: []
+  blogs: [],
+
+  /** @type {Blog} */
+  activeBlog: null
 })
 

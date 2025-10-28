@@ -11,7 +11,7 @@ export class Blog {
 
 
         this.creatorId = data.creatorId
-        this.creator = new Account(data.creator)
+        this.creator = new Account(data.creator) //probably keep the new Account? 
     }
 
     //Add getter later!

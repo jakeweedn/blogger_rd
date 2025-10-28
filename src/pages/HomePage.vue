@@ -1,22 +1,23 @@
 <script setup>
 import { AppState } from '@/AppState.js';
 import Example from '@/components/Example.vue';
-import { projectsService } from '@/services/ProjectsService.js';
+import { blogsService } from '@/services/BlogsService.js';
+
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { computed, onMounted } from 'vue';
 
-const projects = computed(() => AppState.projects)
+const blogs = computed(() => AppState.blogs)
 
 onMounted(() => {
-  getProjects()
+  getBlogs()
 }
 )
 
-async function getProjects() {
+async function getBlogs() {
 
   try {
-    await projectsService.getProjects()
+    await blogsService.getBlogs()
 
   }
   catch (error) {
@@ -34,7 +35,12 @@ async function getProjects() {
   <!-- <Example /> -->
   <h1 class="text-center">Blogger</h1>
 
-  <div v-for="project in projects" :key="project.id"> {{ project.title }} </div>
+  <div v-for="blog in blogs" :key="blog.id">
+
+    {{ blog.title }}
+
+
+  </div>
 
 </template>
 

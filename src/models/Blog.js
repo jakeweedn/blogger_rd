@@ -1,15 +1,13 @@
 import { Account } from "./Account.js"
 
 
-export class Project {
+export class Blog {
 
     constructor(data) {
         this.id = data.id
-        this.createdAt = new Date(data.createdAt)
-        this.updatedAt = new Date(data.updatedAt)
         this.title = data.title
-        this.coverImg = data.coverImg
-        this.projectImgs = data.projectImgs
+        this.body = data.body
+        this.imgUrl = data.imgUrl
 
 
         this.creatorId = data.creatorId

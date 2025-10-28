@@ -1,5 +1,6 @@
 <script setup>
 import { AppState } from '@/AppState.js';
+import BlogsPage from '@/components/BlogsPage.vue';
 import Example from '@/components/Example.vue';
 import { blogsService } from '@/services/BlogsService.js';
 
@@ -35,12 +36,17 @@ async function getBlogs() {
   <!-- <Example /> -->
   <h1 class="text-center">Blogger</h1>
 
-  <div v-for="blog in blogs" :key="blog.id">
+  <!-- <div v-for="blog in blogs" :key="blog.id">
+  </div> -->
 
-    {{ blog.title }}
+  <!-- {{ blog.title }} -->
+
+  <!-- Commented out above, don't want two v-fors for the props, aboce just for testing -->
+
+  <BlogsPage v-for="blog in blogs" :key="blog.id" :blog="blog" />
 
 
-  </div>
+
 
 </template>
 

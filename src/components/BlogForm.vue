@@ -2,7 +2,16 @@
 import { ref } from 'vue';
 
 
-const editableBlogData = ref({})
+const editableBlogData = ref({
+
+    title: '',
+    body: '',
+    imgUrl: '',
+
+
+
+
+})
 
 </script>
 

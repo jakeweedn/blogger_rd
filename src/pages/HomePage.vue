@@ -1,7 +1,7 @@
 <script setup>
 import { AppState } from '@/AppState.js';
 import BlogDetails from '@/components/BlogDetails.vue';
-import BlogsPage from '@/components/BlogsPage.vue';
+import BlogsCard from '@/components/BlogsCard.vue';
 import Example from '@/components/Example.vue';
 import ModalWrapper from '@/components/ModalWrapper.vue';
 import { Blog } from '@/models/Blog.js';
@@ -34,6 +34,8 @@ async function getBlogs() {
 }
 
 
+
+
 </script>
 
 <template>
@@ -51,24 +53,30 @@ async function getBlogs() {
 
     <div v-for="blog in blogs" :key="blog.id" class="col-md-6">
 
-      <BlogsPage :blog="blog" />
+      <BlogsCard :blog="blog" />
 
 
-      <ModalWrapper :modalId=blog.id :modalTitle="blog.title" :blog="blog">
+      <!-- <ModalWrapper :modalId=blog.id :modalTitle="blog.title" :blog="blog">
 
         <BlogDetails :blog="blog" />
 
-      </ModalWrapper>
+      </ModalWrapper> -->
 
       <!-- Great, the above seems to work. Can I do it the active way? Yes, active way is preferable!  -->
 
     </div>
 
+    <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
+
+      <BlogDetails />
+
+
+    </ModalWrapper>
 
 
 
   </section>
-  <!-- v-for for modal wrapper when modal wrapper wraps multiple components (one for each blog)?  -->
+
 
 
 

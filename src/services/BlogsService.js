@@ -17,15 +17,26 @@ class BlogsService {
         AppState.blogs = blogs
 
 
+    }
 
-
-
-
-
+    setActiveBlog(selectedBlog) {
+        AppState.activeBlog = selectedBlog;
+        logger.log('Blog is now active')
 
     }
 
 
+
+
+
+
+
+
+
+
 }
+
+
+
 
 export const blogsService = new BlogsService()

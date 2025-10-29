@@ -16,8 +16,17 @@ const blog = computed(() => AppState.activeBlog)
 
 
 <template>
-    <p v-if="blog != null"> {{ blog.body }} </p>
+    <div v-if="blog != null">
+        <p> {{ blog.body }} </p>
 
+        <div data-bs-dismiss="modal">
+            <RouterLink :to="{ name: 'Profile Details', params: { profileId: blog.creatorId } }"
+                title="Go to the profile page!">
+                <button class="btn btn-primary"> See more info about user </button>
+            </RouterLink>
+        </div>
+
+    </div>
 </template>
 
 

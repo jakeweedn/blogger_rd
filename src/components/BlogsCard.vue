@@ -28,6 +28,7 @@ function setActiveBlog() {
         <div class="card-body">
             <p> {{ blog.title }}</p>
             <p> {{ blog.creator.name }}</p>
+
         </div>
     </div>
 

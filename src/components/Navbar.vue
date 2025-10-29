@@ -2,6 +2,9 @@
 import { ref, watch } from 'vue';
 import { loadState, saveState } from '../utils/Store.js';
 import Login from './Login.vue';
+import { Account } from '@/models/Account.js';
+import ModalWrapper from './ModalWrapper.vue';
+import BlogForm from './BlogForm.vue';
 
 const theme = ref(loadState('theme') || 'light')
 
@@ -35,6 +38,12 @@ watch(theme, () => {
             <RouterLink :to="{ name: 'About' }" class="btn text-green selectable">
               About
             </RouterLink>
+
+            <button data-bs-toggle="modal" data-bs-target="#blog-form-modal" class="btn btn-primary">Create
+              blog!</button>
+
+
+
           </li>
         </ul>
         <!-- LOGIN COMPONENT HERE -->
@@ -49,6 +58,11 @@ watch(theme, () => {
       </div>
     </div>
   </nav>
+
+  <ModalWrapper modalId="blog-form-modal" modalTitle="Create blog!">
+    <BlogForm />
+
+  </ModalWrapper>
 </template>
 
 <style lang="scss" scoped>

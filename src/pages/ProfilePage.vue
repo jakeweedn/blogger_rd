@@ -6,7 +6,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { profilesService } from './ProfilesService.js';
 import { Pop } from '@/utils/Pop.js';
 import { blogsService } from '@/services/BlogsService.js';
-import BlogsCard from '@/components/BlogsCard.vue';
+import BlogsCard from '@/components/BlogCard.vue';
 import ModalWrapper from '@/components/ModalWrapper.vue';
 import BlogDetails from '@/components/BlogDetails.vue';
 

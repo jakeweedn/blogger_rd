@@ -1,6 +1,8 @@
 <script setup>
 import { Blog } from '@/models/Blog.js';
 import { blogsService } from '@/services/BlogsService.js';
+import { logger } from '@/utils/Logger.js';
+import { Pop } from '@/utils/Pop.js';
 import { Modal } from 'bootstrap';
 
 const props = defineProps({
@@ -12,6 +14,29 @@ const props = defineProps({
 function setActiveBlog() {
     blogsService.setActiveBlog(props.blog)
 
+
+}
+
+async function deleteBlog() {
+    const confirmed = await Pop.confirm(`Are you sure you want to delete ${props.blog.title}?`)
+
+    if (!confirmed) {
+        return
+    }
+
+    try {
+        logger.log('Delete that blog')
+        await blogsService.deleteBlog(props.blog.id)
+        Pop.success('Your blog was successfully deleted!')
+
+
+    }
+    catch (error) {
+        Pop.error(error)
+        logger.error('COULD NOT DELETE BLOG')
+
+
+    }
 
 }
 
@@ -30,6 +55,7 @@ function setActiveBlog() {
             <p> {{ blog.creator.name }}</p>
 
         </div>
+        <button @click="deleteBlog()" class="btn btn-warning"> Delete Blog 🗑</button>
     </div>
 
     <!-- Above: Didn't need a ? this time!  -->

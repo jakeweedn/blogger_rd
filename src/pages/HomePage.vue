@@ -1,7 +1,7 @@
 <script setup>
 import { AppState } from '@/AppState.js';
 import BlogDetails from '@/components/BlogDetails.vue';
-import BlogsCard from '@/components/BlogsCard.vue';
+
 import Example from '@/components/Example.vue';
 import ModalWrapper from '@/components/ModalWrapper.vue';
 import { Blog } from '@/models/Blog.js';
@@ -11,6 +11,7 @@ import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { Modal } from 'bootstrap';
 import { computed, onMounted } from 'vue';
+import BlogCard from '@/components/BlogCard.vue';
 
 const blogs = computed(() => AppState.blogs)
 
@@ -53,7 +54,7 @@ async function getBlogs() {
 
     <div v-for="blog in blogs" :key="blog.id" class="col-md-6">
 
-      <BlogsCard :blog="blog" />
+      <BlogCard :blog="blog" />
 
 
       <!-- <ModalWrapper :modalId=blog.id :modalTitle="blog.title" :blog="blog">

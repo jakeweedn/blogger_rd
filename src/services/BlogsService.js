@@ -43,13 +43,23 @@ class BlogsService {
         logger.log('CREATED BLOG', response.data)
 
         const blog = new Blog(response.data)
-        AppState.blogs.push(blog)
+        AppState.blogs.unshift(blog)
 
 
 
 
     }
 
+    async deleteBlog(blogId) {
+
+        const response = await api.delete(`api/blogs/${blogId}`)
+        logger.log('DELETED BLOG', response.data)
+
+        const index = AppState.blogs.findIndex(blog => blog.id == blogId)
+        AppState.blogs.splice(index, 1)
+
+
+    }
 
 
 

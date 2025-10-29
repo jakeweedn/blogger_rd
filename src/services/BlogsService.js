@@ -38,6 +38,18 @@ class BlogsService {
 
     }
 
+    async createBlog(blogData) {
+        const response = await api.post('api/blogs', blogData)
+        logger.log('CREATED BLOG', response.data)
+
+        const blog = new Blog(response.data)
+        AppState.blogs.push(blog)
+
+
+
+
+    }
+
 
 
 

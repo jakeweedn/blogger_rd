@@ -25,6 +25,21 @@ class BlogsService {
 
     }
 
+    async getProjectsByProfileId(profileId) {
+
+        AppState.profileBlogs = [] //null for arrays
+        const response = await api.get(`api/blogs?creatorId=${profileId}`)
+        logger.log(`🎯`, response.data)
+
+        const blogs = response.data.map(blogData => new Blog(blogData))
+        AppState.profileBlogs = blogs
+
+
+
+    }
+
+
+
 
 
 

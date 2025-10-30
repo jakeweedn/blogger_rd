@@ -1,10 +1,15 @@
 <script setup>
+import { AppState } from '@/AppState.js';
+import { Account } from '@/models/Account.js';
 import { Blog } from '@/models/Blog.js';
 import { blogsService } from '@/services/BlogsService.js';
 import { logger } from '@/utils/Logger.js';
 import { Pop } from '@/utils/Pop.js';
 import { Modal } from 'bootstrap';
+import { computed } from 'vue';
 
+
+const account = computed(() => AppState.account)
 const props = defineProps({
 
     blog: { type: Blog, required: true }
@@ -55,7 +60,8 @@ async function deleteBlog() {
             <p> {{ blog.creator.name }}</p>
 
         </div>
-        <button @click="deleteBlog()" class="btn btn-warning"> Delete Blog 🗑</button>
+        <button v-if="account?.id == blog.creatorId" @click="deleteBlog()" class="btn btn-warning"> Delete Blog
+            🗑</button>
     </div>
 
     <!-- Above: Didn't need a ? this time!  -->

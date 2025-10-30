@@ -45,6 +45,8 @@ class BlogsService {
         const blog = new Blog(response.data)
         AppState.blogs.unshift(blog)
 
+        //unshift or push depends on the database being used!
+
 
 
 

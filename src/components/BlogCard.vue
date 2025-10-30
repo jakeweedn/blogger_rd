@@ -52,16 +52,24 @@ async function deleteBlog() {
 <template>
     <div class="card">
         <!-- v-if="blog" can add above if I need to -->
-        <img @click="setActiveBlog()" :src=blog?.imgUrl :alt="`${blog.title}`" data-bs-toggle="modal"
+
+        <img class="img-fluid" @click="setActiveBlog()" :src=blog?.imgUrl :alt="`${blog.title}`" data-bs-toggle="modal"
             data-bs-target="#active-blog-modal">
+
         <!-- The data-bs-target is the modalId! -->
         <div class="card-body">
-            <p> {{ blog.title }}</p>
-            <p> {{ blog.creator.name }}</p>
+            <p class="text-center"> Title: {{ blog.title }}</p>
+            <p class="text-center"> Creator: {{ blog.creator.name }}</p>
+            <div class="text-center">
+                <img class="img-fluid user-picture" :src="blog.creator.picture" alt="`${blog.title}`">
+            </div>
+
 
         </div>
-        <button v-if="account?.id == blog.creatorId" @click="deleteBlog()" class="btn btn-warning"> Delete Blog
-            🗑</button>
+        <div class="d-flex justify-content-end m-2">
+            <button v-if="account?.id == blog.creatorId" @click="deleteBlog()" class="btn delete-button w-25 rounded-4">
+                🗑</button>
+        </div>
     </div>
 
     <!-- Above: Didn't need a ? this time!  -->
@@ -70,4 +78,16 @@ async function deleteBlog() {
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.delete-button {
+
+    background-color: #CF9FFF
+}
+
+.user-picture {
+    max-width: 120px;
+    max-height: 120px;
+
+
+}
+</style>

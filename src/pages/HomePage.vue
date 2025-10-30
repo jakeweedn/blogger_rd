@@ -40,47 +40,62 @@ async function getBlogs() {
 </script>
 
 <template>
-  <!-- <Example /> -->
-  <h1 class="text-center">Blogger</h1>
+  <main class="container">
+    <!-- <Example /> -->
+    <h1 class="text-center cedarville-cursive-regular ">Blogger</h1>
 
-  <!-- <div v-for="blog in blogs" :key="blog.id">
+    <!-- <div v-for="blog in blogs" :key="blog.id">
   </div> -->
 
-  <!-- {{ blog.title }} -->
+    <!-- {{ blog.title }} -->
 
-  <!-- Commented out above, don't want two v-fors for the props, aboce just for testing -->
+    <!-- Commented out above, don't want two v-fors for the props, aboce just for testing -->
 
-  <section class="row">
+    <section class="row">
 
-    <div v-for="blog in blogs" :key="blog.id" class="col-md-6">
+      <div v-for="blog in blogs" :key="blog.id" class="col-md-6 my-2">
 
-      <BlogCard :blog="blog" />
+        <BlogCard :blog="blog" />
 
 
-      <!-- <ModalWrapper :modalId=blog.id :modalTitle="blog.title" :blog="blog">
+        <!-- <ModalWrapper :modalId=blog.id :modalTitle="blog.title" :blog="blog">
 
         <BlogDetails :blog="blog" />
 
       </ModalWrapper> -->
 
-      <!-- Great, the above seems to work. Can I do it the active way? Yes, active way is preferable!  -->
+        <!-- Great, the above seems to work. Can I do it the active way? Yes, active way is preferable!  -->
 
-    </div>
+      </div>
 
-    <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
+      <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
 
-      <BlogDetails />
-
-
-    </ModalWrapper>
+        <BlogDetails />
 
 
-
-  </section>
+      </ModalWrapper>
 
 
 
+    </section>
 
+
+
+  </main>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+main {
+
+  background-color: pink;
+}
+
+.cedarville-cursive-regular {
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Noto+Serif+JP:wght@200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+</style>

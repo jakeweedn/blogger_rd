@@ -20,11 +20,12 @@ watch(theme, () => {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-md bg-codeworks border-bottom border-vue">
+
+  <nav class="navbar navbar-expand-md border-bottom border-vue">
     <div class="container gap-2">
       <RouterLink :to="{ name: 'Home' }" class="d-flex align-items-center text-light">
         <img class="navbar-brand" alt="logo" src="/img/cw-logo.png" height="45" />
-        <b class="fs-5">Vue Starter</b>
+        <b class="fs-5 mdi mdi-pencil">Blog Starter</b>
       </RouterLink>
       <!-- collapse button -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links"
@@ -36,10 +37,12 @@ watch(theme, () => {
         <ul class="navbar-nav">
           <li>
             <RouterLink :to="{ name: 'About' }" class="btn text-green selectable">
-              About
+              <div class="text-white">
+                About
+              </div>
             </RouterLink>
 
-            <button data-bs-toggle="modal" data-bs-target="#blog-form-modal" class="btn btn-primary">Create
+            <button data-bs-toggle="modal" data-bs-target="#blog-form-modal" class="btn create-button rounded-4">Create
               blog!</button>
 
 
@@ -63,6 +66,7 @@ watch(theme, () => {
     <BlogForm />
 
   </ModalWrapper>
+
 </template>
 
 <style lang="scss" scoped>
@@ -78,5 +82,16 @@ a {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+
+}
+
+.create-button {
+  background-color: #CF9FFF;
+
+}
+
+.navbar {
+
+  background-color: #ff0090e3
 }
 </style>

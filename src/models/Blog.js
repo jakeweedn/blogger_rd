@@ -12,6 +12,8 @@ export class Blog {
 
         this.creatorId = data.creatorId
         this.creator = new Account(data.creator) //probably keep the new Account? 
+
+        this.createdAt = new Date(data.createdAt) //then format in card componenet, will be given intellisense! 
     }
 
     //Add getter later!

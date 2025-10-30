@@ -53,7 +53,7 @@ async function getBlogs() {
 
     <section class="row">
 
-      <div v-for="blog in blogs" :key="blog.id" class="col-md-6 my-2">
+      <div v-for="blog in blogs" :key="blog.id" class="my-2">
 
         <BlogCard :blog="blog" />
 
@@ -68,12 +68,14 @@ async function getBlogs() {
 
       </div>
 
+
       <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
 
         <BlogDetails />
 
 
       </ModalWrapper>
+
 
 
 

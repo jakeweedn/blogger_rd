@@ -74,31 +74,34 @@ async function getProfileProjects() {
 
     <div v-if="profile">
         <h1 class="text-center">{{ profile.name }}</h1>
-        <img class="profile-img" :src="profile.picture" :alt="`image of ${profile.name}`">
+        <!-- <img class="profile-img" :src="profile.picture" :alt="`image of ${profile.name}`">
 
 
 
-        <p> {{ profile.email }}</p>
+        <p> {{ profile.email }}</p> -->
+
 
 
 
         <h2 class="text-center">Blogs by {{ profile.name }}</h2>
-        <section class="row">
+        <div class="container">
+            <section class="row">
 
-            <div v-for="blog in blogs" :key="blog.id" class="col-md-6">
+                <div v-for="blog in blogs" :key="blog.id">
 
-                <BlogsCard :blog="blog" />
+                    <BlogsCard :blog="blog" />
 
-            </div>
-
-
-            <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
-
-                <BlogDetails />
+                </div>
 
 
-            </ModalWrapper>
-        </section>
+                <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
+
+                    <BlogDetails />
+
+
+                </ModalWrapper>
+            </section>
+        </div>
     </div>
 
 

@@ -71,41 +71,58 @@ async function getProfileProjects() {
 
 
 <template>
+    <section class="container">
+        <div v-if="profile">
+            <div class="col-md-6">
+                <div class="d-flex flex-row align-items-center justify-content-center my-2">
 
-    <div v-if="profile">
-        <h1 class="text-center">{{ profile.name }}</h1>
-        <!-- <img class="profile-img" :src="profile.picture" :alt="`image of ${profile.name}`">
+                    <div>
+                        <img class="img-fluid user-picture my-5" :src="profile.picture"
+                            :alt="`${profile.name}'s picture'`">
+                    </div>
 
-
-
-        <p> {{ profile.email }}</p> -->
-
-
-
-
-        <h2 class="text-center">Blogs by {{ profile.name }}</h2>
-        <div class="container">
-            <section class="row">
-
-                <div v-for="blog in blogs" :key="blog.id">
-
-                    <BlogsCard :blog="blog" />
-
+                    <h1 class="mx-5"> {{ profile.name }}</h1>
                 </div>
+            </div>
+
+            <!-- <img class="profile-img" :src="profile.picture" :alt="`image of ${profile.name}`"> -->
 
 
-                <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
-
-                    <BlogDetails />
 
 
-                </ModalWrapper>
-            </section>
+
+
+
+
+
+            <!-- <h2 class="text-center">Blogs by {{ profile.name }}</h2> -->
+            <div class="container">
+                <section class="row">
+
+                    <div v-for="blog in blogs" :key="blog.id" class="g-5">
+
+                        <BlogsCard :blog="blog" />
+
+                    </div>
+
+
+                    <ModalWrapper modalId="active-blog-modal" modalTitle="Active Blog Modal">
+
+                        <BlogDetails />
+
+
+                    </ModalWrapper>
+                </section>
+            </div>
         </div>
-    </div>
 
-
+    </section>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.user-picture {
+
+    height: 150px;
+}
+</style>

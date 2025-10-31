@@ -141,6 +141,7 @@ async function deleteBlog() {
 
 .blog-picture {
 
+    height: 304px;
     max-height: 304px;
 
 }
